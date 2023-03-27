@@ -11,4 +11,4 @@ COPY ./docker/context/catalog/init-catalog.sh /docker-entrypoint-initdb.d/init-c
 COPY ./scripts/fetch_landsat_data.sh /scripts/fetch_landsat_data.sh
 EXPOSE 5432
 
-ENTRYPOINT ["/bin/bash", "/scripts/fetch_landsat_data.sh"]
+ENTRYPOINT ["/bin/bash", "/scripts/fetch_landsat_data.sh"
