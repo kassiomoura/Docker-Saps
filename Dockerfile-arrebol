@@ -1,0 +1,26 @@
+FROM postgres:10-alpine
+
+ENV POSTGRES_USER=arrebol_db_user \
+    POSTGRES_PASSWORD=@rrebol \
+    POSTGRES_DB=arrebol_db \
+    arrebol_db_passwd=@rrebol
+
+EXPOSE 5432
+
+FROM maven:3.6.3-jdk-8 AS builder
+
+WORKDIR app
+
+COPY pom.xml .
+COPY src  ./src
+RUN mvn install
+
+FROM openjdk:8-alpine
+
+WORKDIR service
+
+COPY --from=builder /app/bin/arrebol-service-1.0.jar  arrebol.jar
+COPY --from=builder /app/bin/lib lib/
+COPY ./src/main/resources/arrebol.json ./config/arrebol.json
+
+ENTRYPOINT ["java", "-jar", "arrebol.jar", "-c" , "./config/arrebol.json"]
