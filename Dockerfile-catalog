@@ -10,4 +10,4 @@ COPY ./docker/context/catalog/init-catalog.sh /docker-entrypoint-initdb.d/init-c
 
 EXPOSE 5432
 
-ENTRYPOINT ["/bin/bash", "/scripts/fetch_landsat_data.sh"
+RUN pg_createcluster 10 main --start
