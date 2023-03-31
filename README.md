@@ -49,15 +49,18 @@
    ```
    sudo vim /etc/apache2/sites-available/default-ssl.conf
    ```
+   
 2. Mude o DocumentRoot para o diretorio do nfs (default = /nfs)
    ```
    DocumentRoot $nfs_server_folder_path 
    # Exemplo: DocumentRoot /nfs
    ```
+   
 3. Modifique o arquivo sites-available/000-default.conf
    ```
    sudo vim /etc/apache2/sites-available/000-default.conf
    ```
+   
 4. Mude o DocumentRoot e adicione as linhas em sequencia
    ```
    DocumentRoot $nfs_server_folder_path 
@@ -70,10 +73,12 @@
                    Require all granted
            </Directory>
    ```
+   
 5. Modifique o arquivo sites-available/000-default.conf
    ```
    sudo vim /etc/apache2/apache2.conf
    ```
+   
 6. Mude o FilesMatch 
    ```
    <FilesMatch ".+\.(txt|TXT|nc|NC|tif|TIF|tiff|TIFF|csv|CSV|log|LOG|metadata)$">
@@ -81,71 +86,92 @@
            Header set Content-Disposition attachment
    </FilesMatch>
    ```
+   
  7. Para executar o Dockerfile execute os seguinte comandos:
    7.1. Build a imagem usando:
         ```
         sudo docker build -f Dockerfile-archiver -t archiver:v4 .
         ```
+        
    7.2. Rode a imagem usando:
         ```
         sudo docker run --net=host archiver:v4
         ```
+        
 ## Dockerfile-dispatcher
 ### Execução
 1. Configure o arquivo **/config/dispatcher.conf** de acordo com os outros componentes
    * Exemplo (nfs): [dispatcher.conf](./confs/dispatcher/clean/dispatcher.conf) 
+   
 2. Para executar o Dockerfile execute os seguinte comandos:
+
    2.1. Build a imagem usando:
         ```
         sudo docker build -f Dockerfile-dispatcher -t dispatcher:v4 .
         ```
+        
    2.2. Rode a imagem usando:
         ```
         sudo docker run --net=host dispatcher:v4
         ```
+        
 ## Dockerfile-scheduler
 ### Execução
 1. Configure o arquivo **/config/scheduler.conf** de acordo com os outros componentes
    * Exemplo (nfs): [scheduler.conf](./confs/scheduler/clean/scheduler.conf) 
+   
 2. Para executar o Dockerfile execute os seguinte comandos:
+
    2.1. Build a imagem usando:
         ```
         sudo docker build -f Dockerfile-scheduler -t scheduler:v4 .
         ```
+        
    2.2. Rode a imagem usando:
         ```
         sudo docker run --net=host scheduler:v4
+        ```
+        
 ## Dockerfile-dashboard
 ### Execução:
 1. Configure o host e as portas em [**/backend.config**](./confs/dashboard/clean/backend.config)
+
 2. Configure a urlSapsService em [**/public/dashboardApp.js**](./confs/dashboard/clean/dashboardApp.js) (Linha 52)
+
 3. Para executar o Dockerfile execute os seguinte comandos:
    3.1. Build a imagem usando:
         ```
         sudo docker build -f Dockerfile-dashboard -t dashboard:v4 .
         ```
+        
    3.2. Rode a imagem usando:
         ```
         sudo docker run --net=host dashboard:v4
+        ```
+        
 4. Para verificar se esta funcionando acesse o endereço IP configurado no dashboard usando:
    ```
    login: admin_saps
    senha: admin_password
    ```
+   
 ## Dockerfile-arrebol
 ### Execução
 1. Configure os arquivos **src/main/resources/application.properties** e **src/main/resources/arrebol.json** de acordo com os outros componentes
    * Exemplo: [application.properties](./confs/arrebol/clean/application.properties) 
    * Exemplo: [arrebol.json](./confs/arrebol/clean/arrebol.json)
+   
 2. Para executar o Dockerfile execute os seguinte comandos:
    2.1. Build a imagem usando:
         ```
         sudo docker build -f Dockerfile-arrebol -t arrebol:v4 .
         ```
+        
    2.2. Rode a imagem usando:
         ```
         sudo docker run --net=host arrebol:v4
         ```
+        
    3. Após a execução do arrebol, são criadas as tabelas no bd, com isso é preciso adicionar as seguintes constraints:
       ```
       psql -h localhost -p 5432 arrebol arrebol_db_user
@@ -161,4 +187,3 @@
       ALTER TABLE task DROP CONSTRAINT fk303yjlm5m2en8gknk80nkd27p; 
       ALTER TABLE task ADD CONSTRAINT task_spec_id_fk FOREIGN KEY (task_spec_id) REFERENCES task_spec(id) ON DELETE CASCADE;
       ```
-      
