@@ -13,9 +13,9 @@
      
 1.2. Rode a imagem usando:
      
-     ```
+     
      sudo docker run --net=host -it catalog:v4 bash 
-     ```
+     
      
 1.2.1 Dentro do bash do catalog execute:
      
