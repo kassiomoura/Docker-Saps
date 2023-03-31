@@ -53,32 +53,32 @@
  
  
 ## IMPORTANTE
-* Para não derrubar o catalog execute o comando ```Ctrl + P``` seguido de ```Ctrl + Q`` no terminal
+* Para não derrubar o catalog execute o comando ```Ctrl + P``` seguido de ```Ctrl + Q``` no terminal
 
 ## Dockerfile-archiver
 ### Execução
 1. Modifique o arquivo sites-available/default-ssl.conf
    
-   
+   ```
    sudo vim /etc/apache2/sites-available/default-ssl.conf
-   
+   ```
    
 2. Mude o DocumentRoot para o diretorio do nfs (default = /nfs)
    
-   
+   ```
    DocumentRoot $nfs_server_folder_path 
    # Exemplo: DocumentRoot /nfs
    
    
 3. Modifique o arquivo sites-available/000-default.conf
    
-   
+   ```
    sudo vim /etc/apache2/sites-available/000-default.conf
-   
+   ```
    
 4. Mude o DocumentRoot e adicione as linhas em sequencia
    
-   
+   ```
    DocumentRoot $nfs_server_folder_path 
    # Exemplo: DocumentRoot /nfs
            Options +Indexes
@@ -88,13 +88,13 @@
                    AllowOverride None
                    Require all granted
            </Directory>
-   
+   ```
    
 5. Modifique o arquivo sites-available/000-default.conf
   
-   
+   ```
    sudo vim /etc/apache2/apache2.conf
-   
+   ```
    
 6. Mude o FilesMatch 
    
