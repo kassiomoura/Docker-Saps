@@ -47,10 +47,10 @@
       
 * Por fim execute o script **/scripts/fetch_landsat_data.sh** (ele demora um pouco
  
- 
+ ```
  cd scripts
  bash fetch_landsat_data.sh
- 
+ ```
  
 ## IMPORTANTE
 * Para não derrubar o catalog execute o comando ```Ctrl + P``` seguido de ```Ctrl + Q``` no terminal
@@ -68,7 +68,7 @@
    ```
    DocumentRoot $nfs_server_folder_path 
    # Exemplo: DocumentRoot /nfs
-   
+   ```
    
 3. Modifique o arquivo sites-available/000-default.conf
    
@@ -98,12 +98,12 @@
    
 6. Mude o FilesMatch 
    
-   
+   ```
    <FilesMatch ".+\.(txt|TXT|nc|NC|tif|TIF|tiff|TIFF|csv|CSV|log|LOG|metadata)$">
            ForceType application/octet-stream
            Header set Content-Disposition attachment
    </FilesMatch>
-   
+   ```
    
 7. Para executar o Dockerfile execute os seguinte comandos:
  
