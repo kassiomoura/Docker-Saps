@@ -27,9 +27,6 @@ Logo após configure o catalog e o arrebol:
       
       
       su postgres
-      
-      
-      
       export catalog_user=catalog_user
       export catalog_passwd=catalog_passwd
       export catalog_db_name=catalog_db_name
