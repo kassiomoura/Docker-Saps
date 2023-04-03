@@ -177,7 +177,7 @@ Logo após configure o catalog e o arrebol:
 4. Para verificar se esta funcionando acesse o endereço IP configurado no dashboard usando:
    
    ```
-   login: admin_saps
+   login: admin_email
    senha: admin_password
    ```
    
