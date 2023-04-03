@@ -5,19 +5,19 @@
 ### Execução
 1. Para executar o Dockerfile execute os seguinte comandos:
 
-1.1. Build a imagem usando:
+  1.1. Build a imagem usando:
      
      
      sudo docker build -f Dockerfile-catalog -t catalog:v4 .
      
      
-1.2. Rode a imagem usando:
+  1.2. Rode a imagem usando:
      
      
      sudo docker run --net=host -it catalog:v4 bash 
      
      
-1.2.1 Dentro do bash do catalog execute:
+  1.2.1 Dentro do bash do catalog execute:
      
       
       pg_createcluster 12 main --start
@@ -104,13 +104,13 @@ Logo após configure o catalog e o arrebol:
    
 7. Para executar o Dockerfile execute os seguinte comandos:
  
-7.1. Build a imagem usando:
+  7.1. Build a imagem usando:
       
       
       sudo docker build -f Dockerfile-archiver -t archiver:v4 .
       
         
-7.2. Rode a imagem usando:
+  7.2. Rode a imagem usando:
 
      
      sudo docker run --net=host archiver:v4
@@ -123,13 +123,13 @@ Logo após configure o catalog e o arrebol:
    
 2. Para executar o Dockerfile execute os seguinte comandos:
 
-2.1. Build a imagem usando:
+  2.1. Build a imagem usando:
      
      
      sudo docker build -f Dockerfile-dispatcher -t dispatcher:v4 .
      
         
-2.2. Rode a imagem usando:
+  2.2. Rode a imagem usando:
      
      
      sudo docker run --net=host dispatcher:v4
@@ -142,13 +142,13 @@ Logo após configure o catalog e o arrebol:
    
 2. Para executar o Dockerfile execute os seguinte comandos:
 
-2.1. Build a imagem usando:
+  2.1. Build a imagem usando:
      
      
      sudo docker build -f Dockerfile-scheduler -t scheduler:v4 .
      
         
-2.2. Rode a imagem usando:
+  2.2. Rode a imagem usando:
      
      
      sudo docker run --net=host scheduler:v4
@@ -162,13 +162,13 @@ Logo após configure o catalog e o arrebol:
 
 3. Para executar o Dockerfile execute os seguinte comandos:
 
-3.1. Build a imagem usando:
+  3.1. Build a imagem usando:
      
      
      sudo docker build -f Dockerfile-dashboard -t dashboard:v4 .
      
         
-3.2. Rode a imagem usando:
+  3.2. Rode a imagem usando:
      
      
      sudo docker run --net=host dashboard:v4
@@ -189,13 +189,13 @@ Logo após configure o catalog e o arrebol:
    
 2. Para executar o Dockerfile execute os seguinte comandos:
  
-2.1. Build a imagem usando:
+  2.1. Build a imagem usando:
      
      
      sudo docker build -f Dockerfile-arrebol -t arrebol:v4 .
      
         
-2.2. Rode a imagem usando:
+  2.2. Rode a imagem usando:
      
      
      sudo docker run --net=host arrebol:v4
