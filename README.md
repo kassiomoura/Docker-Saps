@@ -23,7 +23,7 @@
       pg_createcluster 12 main --start
       
       
-      Logo após configure o catalog e o arrebol:
+Logo após configure o catalog e o arrebol:
       
       
       su postgres
