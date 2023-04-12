@@ -46,15 +46,17 @@
  
           sudo docker exec <CONTAINER_ID> -it bash
   
-  * Para achar o <CONTAINER_ID> do catalog:v5 use o comando: sudo docker ps
+  * Para achar o ``` <CONTAINER_ID> ``` do catalog:v5 use o comando: 
+          
+          
+          sudo docker ps
     
     
-    
-      2.3 Dentro do container execute os seguintes comandos:
+          2.3 Dentro do container execute os seguintes comandos:
  
  
           pg_createcluster 12 main --start
-     /
+          
   * Isso irá criar o cluster do postgres
      
      
@@ -82,5 +84,11 @@
           psql -c "CREATE USER $catalog_user WITH PASSWORD '$catalog_passwd';"
           psql -c "CREATE DATABASE $catalog_db_name OWNER $catalog_user;"
           psql -c "GRANT ALL PRIVILEGES ON DATABASE $catalog_db_name TO $catalog_user;"
-
-3. Para finalizar, em uma nova aba repita o passo 2.2.
+          
+3. Em uma nova aba repita os passos 2 e 2.2, e execute o execute o script **/scripts/fetch_landsat_data.sh** (ele demora um pouco).
+ 
+ 
+ ```
+ cd scripts
+ bash fetch_landsat_data.sh
+ ```
