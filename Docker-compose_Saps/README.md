@@ -85,7 +85,7 @@
           psql -c "CREATE DATABASE $catalog_db_name OWNER $catalog_user;"
           psql -c "GRANT ALL PRIVILEGES ON DATABASE $catalog_db_name TO $catalog_user;"
           
-3. Em uma nova aba repita os passos 2 e 2.2, e execute o execute o script **/scripts/fetch_landsat_data.sh** (ele demora um pouco).
+3. Em uma nova aba repita os passos 2 e 2.2, e execute o script **/scripts/fetch_landsat_data.sh** (ele demora um pouco).
  
  
  ```
