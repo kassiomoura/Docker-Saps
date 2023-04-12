@@ -9,18 +9,18 @@
 ### Execução
 1. Crie uma nova imagem do catalog usando a nova Dockerfile:
 
- 1.1. Build a imagem usando:
+    1.1. Build a imagem usando:
 
 
-     sudo docker build -f Dockerfile-catalog -t catalog:v5 .
+        sudo docker build -f Dockerfile-catalog -t catalog:v5 .
      
 ## Dockerfile-arrebol
 ### Execução
 1. Crie uma nova imagem do arrebol usando a nova Dockerfile:
 
-1.1. Build a imagem usando:
+    1.1. Build a imagem usando:
 
-     sudo docker build -f Dockerfile-arrebol -t arrebol:v5 .
+        sudo docker build -f Dockerfile-arrebol -t arrebol:v5 .
 
 * Após a criação das imagem rode o docker-compose:
 
