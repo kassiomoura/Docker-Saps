@@ -28,37 +28,38 @@
 ### Execução
 1. Para executar o docker-compose execute os seguintes passos:
 
- 1.1 Suba usando comando:
+    1.1 Suba usando comando:
     
     
-    sudo docker compose up
+        sudo docker compose up
    
 * Atenção: Nem todos os containers irão subir mas não se preocupe.
 
 2. Para tudo funcionar corretamente é necessário configurar o catalog da seguinte forma:
 
- 2.2 Entre no container do catalog:v5 usando o seguinte comando:
+    2.2 Entre no container do catalog:v5 usando o seguinte comando:
  
  
-    sudo docker exec <CONTAINER_ID> -it bash
+        sudo docker exec <CONTAINER_ID> -it bash
   
   * Para achar o <CONTAINER_ID> do catalog:v5 use o comando: sudo docker ps
     
- 2.3 Dentro do container execute os seguintes comandos:
+    
+    2.3 Dentro do container execute os seguintes comandos:
  
  
-     pg_createcluster 12 main --start
+        pg_createcluster 12 main --start
      
   * Isso irá criar o cluster do postgres
      
      
-    2.3.1 Em seguinta execute:
+     2.3.1 Em seguinta execute:
      
      
-    su postgres
+        su postgres
            
            
-    2.3.2 Por fim, execute:
+     2.3.2 Por fim, execute:
            
            
         export arrebol_db_user=arrebol_db_user
