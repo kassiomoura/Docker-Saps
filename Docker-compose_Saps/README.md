@@ -2,10 +2,7 @@
 
 * Importante! É preciso mudar as portas (de 5432 para 5433) nos seguintes arquivos de configurações do arrebol:
 
-
-  /arrebol/src/main/resources/application.properties
-
-  /arrebol/src/main/resources/application.psql.properties
+  ```/arrebol/src/main/resources/application.properties``` ```/arrebol/src/main/resources/application.psql.properties```
 
 
 ## Dockerfile-catalog
