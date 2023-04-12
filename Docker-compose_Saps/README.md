@@ -52,13 +52,13 @@
   * Isso irá criar o cluster do postgres
      
      
-  2.3.1 Em seguinta execute:
+    2.3.1 Em seguinta execute:
      
      
            su postgres
            
            
-  2.3.2 Por fim, execute:
+    2.3.2 Por fim, execute:
            
            
            export arrebol_db_user=arrebol_db_user
@@ -74,6 +74,5 @@
            psql -c "CREATE USER $catalog_user WITH PASSWORD '$catalog_passwd';"
            psql -c "CREATE DATABASE $catalog_db_name OWNER $catalog_user;"
            psql -c "GRANT ALL PRIVILEGES ON DATABASE $catalog_db_name TO $catalog_user;"
-
 
 3. Para finalizar, em uma nova aba repita o passo 2.2.
