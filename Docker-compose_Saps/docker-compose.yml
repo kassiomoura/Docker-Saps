@@ -1,0 +1,56 @@
+version: '3.3'
+
+services:
+
+  catalog:
+    container_name: catalog-tst
+    image: catalog:v4
+    network_mode: "host"
+    restart: always
+    environment:
+            POSTGRES_USER: catalog_user
+            POSTGRES_PASSWORD: catalog_passwd
+            POSTGRES_DB: catalog_db_name
+    volumes:
+       - ./data/catalog:/postgres-db:/data/postgres
+    ports:
+      - "5432:5432"
+
+  arrebol:
+    container_name: arrebol-tst
+    image: arrebol:v5
+    network_mode: "host"
+    environment:
+            POSTGRES_USER: arrebol_db_user
+            POSTGRES_PASSWORD: arrebol
+            POSTGRES_DB: arrebol
+    volumes:
+       - ./data/arrebol:/postgres-db:/data/postgres
+    ports:
+      - "5433:5432"
+
+  archiver:
+    container_name: archiver-tst
+    image: archiver:v4
+    network_mode: "host"
+
+  dispatcher:
+    container_name: dispatcher-tst
+    image: dispatcher:v4
+    network_mode: "host"
+    ports:
+     - 8091:8091
+    depends_on:
+     - catalog
+
+  scheduler:
+    container_name: scheduler-tst
+    image: scheduler:v4
+    network_mode: "host"
+
+  dashboard:
+    container_name: dashboard_tst
+    image: dashboard:v4
+    network_mode: "host"
+    ports:
+     - 8081:8081
