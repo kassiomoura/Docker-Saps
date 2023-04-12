@@ -17,7 +17,8 @@
 ## Dockerfile-arrebol
 ### Execução
 1. Crie uma nova imagem do arrebol usando a nova Dockerfile:
- 1.1. Build a imagem usando:
+
+1.1. Build a imagem usando:
 
      sudo docker build -f Dockerfile-arrebol -t arrebol:v5 .
 
