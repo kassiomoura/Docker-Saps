@@ -8,19 +8,19 @@
      1.1. Build a imagem usando:
      
      
-     sudo docker build -f Dockerfile-catalog -t catalog:v4 .
+          sudo docker build -f Dockerfile-catalog -t catalog:v4 .
      
      
      1.2. Rode a imagem usando:
      
      
-     sudo docker run --net=host -it catalog:v4 bash 
+          sudo docker run --net=host -it catalog:v4 bash 
      
      
      1.2.1 Dentro do bash do catalog execute:
      
       
-      pg_createcluster 12 main --start
+           pg_createcluster 12 main --start
       
       
 Logo após configure o catalog e o arrebol:
@@ -107,13 +107,13 @@ Logo após configure o catalog e o arrebol:
       7.1. Build a imagem usando:
       
       
-      sudo docker build -f Dockerfile-archiver -t archiver:v4 .
+           sudo docker build -f Dockerfile-archiver -t archiver:v4 .
       
         
      7.2. Rode a imagem usando:
 
      
-     sudo docker run --net=host archiver:v4
+          sudo docker run --net=host archiver:v4
      
         
 ## Dockerfile-dispatcher
@@ -126,13 +126,13 @@ Logo após configure o catalog e o arrebol:
      2.1. Build a imagem usando:
      
      
-     sudo docker build -f Dockerfile-dispatcher -t dispatcher:v4 .
+          sudo docker build -f Dockerfile-dispatcher -t dispatcher:v4 .
      
         
      2.2. Rode a imagem usando:
      
      
-     sudo docker run --net=host dispatcher:v4
+          sudo docker run --net=host dispatcher:v4
      
         
 ## Dockerfile-scheduler
@@ -145,13 +145,13 @@ Logo após configure o catalog e o arrebol:
      2.1. Build a imagem usando:
      
      
-     sudo docker build -f Dockerfile-scheduler -t scheduler:v4 .
+          sudo docker build -f Dockerfile-scheduler -t scheduler:v4 .
      
         
      2.2. Rode a imagem usando:
      
      
-     sudo docker run --net=host scheduler:v4
+          sudo docker run --net=host scheduler:v4
      
         
 ## Dockerfile-dashboard
@@ -165,13 +165,13 @@ Logo após configure o catalog e o arrebol:
      3.1. Build a imagem usando:
      
      
-     sudo docker build -f Dockerfile-dashboard -t dashboard:v4 .
+          sudo docker build -f Dockerfile-dashboard -t dashboard:v4 .
      
         
      3.2. Rode a imagem usando:
      
      
-     sudo docker run --net=host dashboard:v4
+          sudo docker run --net=host dashboard:v4
      
         
 4. Para verificar se esta funcionando acesse o endereço IP configurado no dashboard usando:
@@ -192,13 +192,13 @@ Logo após configure o catalog e o arrebol:
      2.1. Build a imagem usando:
      
      
-     sudo docker build -f Dockerfile-arrebol -t arrebol:v4 .
+          sudo docker build -f Dockerfile-arrebol -t arrebol:v4 .
      
         
      2.2. Rode a imagem usando:
      
      
-     sudo docker run --net=host arrebol:v4
+          sudo docker run --net=host arrebol:v4
      
         
 3. Após a execução do arrebol, são criadas as tabelas no bd, com isso é preciso adicionar as seguintes constraints:
