@@ -35,6 +35,7 @@
    
 * Atenção: Nem todos os containers irão subir mas não se preocupe.
 
+
 2. Para tudo funcionar corretamente é necessário configurar o catalog da seguinte forma:
 
     2.2 Entre no container do catalog:v5 usando o seguinte comando:
@@ -45,6 +46,7 @@
   * Para achar o <CONTAINER_ID> do catalog:v5 use o comando: sudo docker ps
     
     
+    
     2.3 Dentro do container execute os seguintes comandos:
  
  
@@ -53,10 +55,12 @@
   * Isso irá criar o cluster do postgres
      
      
+     
      2.3.1 Em seguinta execute:
      
      
         su postgres
+           
            
            
      2.3.2 Por fim, execute:
