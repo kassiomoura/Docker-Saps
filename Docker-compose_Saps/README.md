@@ -52,7 +52,7 @@
           sudo docker ps
     
     
-          2.3 Dentro do container execute os seguintes comandos:
+      2.3 Dentro do container execute os seguintes comandos:
  
  
           pg_createcluster 12 main --start
