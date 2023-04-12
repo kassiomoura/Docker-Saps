@@ -3,10 +3,9 @@
 * Importante! É preciso mudar as portas (de 5432 para 5433) nos seguintes arquivos de configurações do arrebol:
 
 
-/arrebol/src/main/resources/application.properties
+  /arrebol/src/main/resources/application.properties
 
-
-/arrebol/src/main/resources/application.psql.properties
+  /arrebol/src/main/resources/application.psql.properties
 
 
 ## Dockerfile-catalog
@@ -21,7 +20,7 @@
 ## Dockerfile-arrebol
 ### Execução
 1. Crie uma nova imagem do arrebol usando a nova Dockerfile:
-/
+
       1.1. Build a imagem usando:
 
           sudo docker build -f Dockerfile-arrebol -t arrebol:v5 .
