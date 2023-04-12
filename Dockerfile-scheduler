@@ -14,7 +14,8 @@ RUN mvn install
 FROM openjdk:8-alpine
 ENV MAIN_CLASS="saps.scheduler.core.SchedulerMain" \
     SERVICE_CONF_PATH="./config/scheduler.conf" \
-    LOG_PROPERTIES_PATH="./config/log4j.properties"
+    LOG_PROPERTIES_PATH="./config/log4j.properties" \
+    EXECUTION_SCRIPT_TAGS="./resources/execution_script_tags.json"
 
 WORKDIR /scheduler
 
@@ -24,4 +25,4 @@ COPY ./config/scheduler.conf config/scheduler.conf
 COPY ./config/log4j.properties config/log4j.properties
 COPY ./resources resources/
 
-ENTRYPOINT java -Dlog4j.configuration=file:"${LOG_PROPERTIES_PATH}" -cp scheduler.jar:lib/* "${MAIN_CLASS}" "${SERVICE_CONF_PATH}"
+ENTRYPOINT java -Dlog4j.configuration=file:"${LOG_PROPERTIES_PATH}" -cp scheduler.jar:lib/* "${MAIN_CLASS}" "${SERVICE_CONF_PATH}" "${EXECUTION_SCRIPT_TAGS}"
