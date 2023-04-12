@@ -8,7 +8,9 @@
 ## Dockerfile-catalog
 ### Execução
 1. Crie uma nova imagem do catalog usando a nova Dockerfile:
+
  1.1. Build a imagem usando:
+
 
      sudo docker build -f Dockerfile-catalog -t catalog:v5 .
      
@@ -24,30 +26,38 @@
 ## Docker-Compose
 ### Execução
 1. Para executar o docker-compose execute os seguintes passos:
+
  1.1 Suba usando comando:
+    
     
     sudo docker compose up
    
 * Atenção: Nem todos os containers irão subir mas não se preocupe.
 
 2. Para tudo funcionar corretamente é necessário configurar o catalog da seguinte forma:
+
  2.2 Entre no container do catalog:v5 usando o seguinte comando:
+ 
  
     sudo docker exec <CONTAINER_ID> -it bash
   
   * Para achar o <CONTAINER_ID> do catalog:v5 use o comando: sudo docker ps
-  
+    
  2.3 Dentro do container execute os seguintes comandos:
+ 
  
      pg_createcluster 12 main --start
      
      * Isso irá criar o cluster do postgres
      
+     
      2.3.1 Em seguinta execute:
+     
      
            su postgres
            
      2.3.2 Por fim, execute:
+           
            
            export arrebol_db_user=arrebol_db_user
            export arrebol_db_passwd=arrebol
@@ -62,5 +72,6 @@
            psql -c "CREATE USER $catalog_user WITH PASSWORD '$catalog_passwd';"
            psql -c "CREATE DATABASE $catalog_db_name OWNER $catalog_user;"
            psql -c "GRANT ALL PRIVILEGES ON DATABASE $catalog_db_name TO $catalog_user;"
+
 
 3. Para finalizar, em uma nova aba repita o passo 2.2.
