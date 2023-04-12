@@ -1,26 +1,26 @@
 # Docker-compose_Saps
 
 * Importante! É preciso mudar as portas (de 5432 para 5433) nos seguintes arquivos de configurações do arrebol:
-  /arrebol/src/main/resources/application.properties
-  /arrebol/src/main/resources/application.psql.properties
+/arrebol/src/main/resources/application.properties
+/arrebol/src/main/resources/application.psql.properties
 
 
 ## Dockerfile-catalog
 ### Execução
 1. Crie uma nova imagem do catalog usando a nova Dockerfile:
 
-    1.1. Build a imagem usando:
+      1.1. Build a imagem usando:
 
 
-        sudo docker build -f Dockerfile-catalog -t catalog:v5 .
+          sudo docker build -f Dockerfile-catalog -t catalog:v5 .
      
 ## Dockerfile-arrebol
 ### Execução
 1. Crie uma nova imagem do arrebol usando a nova Dockerfile:
 
-    1.1. Build a imagem usando:
+      1.1. Build a imagem usando:
 
-        sudo docker build -f Dockerfile-arrebol -t arrebol:v5 .
+          sudo docker build -f Dockerfile-arrebol -t arrebol:v5 .
 
 * Após a criação das imagem rode o docker-compose:
 
@@ -28,56 +28,56 @@
 ### Execução
 1. Para executar o docker-compose execute os seguintes passos:
 
-    1.1 Suba usando comando:
+      1.1 Suba usando comando:
     
     
-        sudo docker compose up
+          sudo docker compose up
    
 * Atenção: Nem todos os containers irão subir mas não se preocupe.
 
 
 2. Para tudo funcionar corretamente é necessário configurar o catalog da seguinte forma:
 
-    2.2 Entre no container do catalog:v5 usando o seguinte comando:
+      2.2 Entre no container do catalog:v5 usando o seguinte comando:
  
  
-        sudo docker exec <CONTAINER_ID> -it bash
+          sudo docker exec <CONTAINER_ID> -it bash
   
   * Para achar o <CONTAINER_ID> do catalog:v5 use o comando: sudo docker ps
     
     
     
-    2.3 Dentro do container execute os seguintes comandos:
+      2.3 Dentro do container execute os seguintes comandos:
  
  
-        pg_createcluster 12 main --start
+          pg_createcluster 12 main --start
      
   * Isso irá criar o cluster do postgres
      
      
      
-     2.3.1 Em seguinta execute:
+      2.3.1 Em seguinta execute:
      
      
-        su postgres
+          su postgres
            
            
            
-     2.3.2 Por fim, execute:
+      2.3.2 Por fim, execute:
            
            
-        export arrebol_db_user=arrebol_db_user
-        export arrebol_db_passwd=arrebol
-        export arrebol_db_name=arrebol
-        psql -c "CREATE USER $arrebol_db_user WITH PASSWORD '$arrebol_db_passwd';"
-        psql -c "CREATE DATABASE $arrebol_db_name OWNER $arrebol_db_user;"
-        psql -c "ALTER USER $arrebol_db_user PASSWORD '$arrebol_db_passwd';"
+          export arrebol_db_user=arrebol_db_user
+          export arrebol_db_passwd=arrebol
+          export arrebol_db_name=arrebol
+          psql -c "CREATE USER $arrebol_db_user WITH PASSWORD '$arrebol_db_passwd';"
+          psql -c "CREATE DATABASE $arrebol_db_name OWNER $arrebol_db_user;"
+          psql -c "ALTER USER $arrebol_db_user PASSWORD '$arrebol_db_passwd';"
 
-        export catalog_user=catalog_user
-        export catalog_passwd=catalog_passwd
-        export catalog_db_name=catalog_db_name
-        psql -c "CREATE USER $catalog_user WITH PASSWORD '$catalog_passwd';"
-        psql -c "CREATE DATABASE $catalog_db_name OWNER $catalog_user;"
-        psql -c "GRANT ALL PRIVILEGES ON DATABASE $catalog_db_name TO $catalog_user;"
+          export catalog_user=catalog_user
+          export catalog_passwd=catalog_passwd
+          export catalog_db_name=catalog_db_name
+          psql -c "CREATE USER $catalog_user WITH PASSWORD '$catalog_passwd';"
+          psql -c "CREATE DATABASE $catalog_db_name OWNER $catalog_user;"
+          psql -c "GRANT ALL PRIVILEGES ON DATABASE $catalog_db_name TO $catalog_user;"
 
 3. Para finalizar, em uma nova aba repita o passo 2.2.
