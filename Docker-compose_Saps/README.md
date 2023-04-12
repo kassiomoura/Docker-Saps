@@ -49,16 +49,16 @@
      pg_createcluster 12 main --start
      
      
-     * Isso irá criar o cluster do postgres
+  * Isso irá criar o cluster do postgres
      
      
-     2.3.1 Em seguinta execute:
+  2.3.1 Em seguinta execute:
      
      
            su postgres
            
            
-     2.3.2 Por fim, execute:
+  2.3.2 Por fim, execute:
            
            
            export arrebol_db_user=arrebol_db_user
