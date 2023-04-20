@@ -8,4 +8,6 @@ RUN apt-get -y update; apt-get -y install curl
 
 COPY ./docker/context/catalog/init-catalog.sh /docker-entrypoint-initdb.d/init-catalog.sh
 
+COPY ./scripts/fetch_landsat_data.sh /scripts/fetch_landsat_data.sh
+
 EXPOSE 5432
