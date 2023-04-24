@@ -23,8 +23,7 @@
       
       
 Logo após configure o catalog e o arrebol:
-      
-      
+      ```
       su postgres
       export catalog_user=catalog_user
       export catalog_passwd=catalog_passwd
@@ -39,6 +38,7 @@ Logo após configure o catalog e o arrebol:
       psql -c "CREATE DATABASE $arrebol_db_name OWNER $arrebol_db_user;"
       psql -c "ALTER USER $arrebol_db_user PASSWORD '$arrebol_db_passwd';"
       exit
+      ```
       
       
 * Por fim execute o script **/scripts/fetch_landsat_data.sh** (ele demora um pouco
@@ -54,27 +54,23 @@ Logo após configure o catalog e o arrebol:
 ## Dockerfile-archiver
 ### Execução
 1. Modifique o arquivo sites-available/default-ssl.conf
-   
-   ```
-   sudo vim /etc/apache2/sites-available/default-ssl.conf
-   ```
+ ```
+ sudo vim /etc/apache2/sites-available/default-ssl.conf
+ ```
    
 2. Mude o DocumentRoot para o diretorio do nfs (default = /nfs)
-   
-   ```
-   DocumentRoot $nfs_server_folder_path 
-   # Exemplo: DocumentRoot /nfs
-   ```
+ ```
+ DocumentRoot $nfs_server_folder_path 
+ # Exemplo: DocumentRoot /nfs
+ ```
    
 3. Modifique o arquivo sites-available/000-default.conf
-   
-   ```
-   sudo vim /etc/apache2/sites-available/000-default.conf
-   ```
+ ```
+ sudo vim /etc/apache2/sites-available/000-default.conf
+ ```
    
 4. Mude o DocumentRoot e adicione as linhas em sequencia
-   
-   ```
+ ```
    DocumentRoot $nfs_server_folder_path 
    # Exemplo: DocumentRoot /nfs
            Options +Indexes
@@ -84,16 +80,14 @@ Logo após configure o catalog e o arrebol:
                    AllowOverride None
                    Require all granted
            </Directory>
-   ```
+ ```
    
 5. Modifique o arquivo sites-available/000-default.conf
-  
-   ```
-   sudo vim /etc/apache2/apache2.conf
-   ```
+ ```
+ sudo vim /etc/apache2/apache2.conf
+ ```
    
-6. Mude o FilesMatch 
-   
+6. Mude o FilesMatch  
    ```
    <FilesMatch ".+\.(txt|TXT|nc|NC|tif|TIF|tiff|TIFF|csv|CSV|log|LOG|metadata)$">
            ForceType application/octet-stream
@@ -104,15 +98,15 @@ Logo após configure o catalog e o arrebol:
 7. Para executar o Dockerfile execute os seguinte comandos:
  
       7.1. Build a imagem usando:
-      
-      
+           ```
            sudo docker build -f Dockerfile-archiver -t archiver:v4 .
+           ```
       
         
      7.2. Rode a imagem usando:
-
-     
+      ```
       sudo docker run --net=host archiver:v4
+      ```
      
         
 ## Dockerfile-dispatcher
@@ -125,37 +119,35 @@ Logo após configure o catalog e o arrebol:
 2. Para executar o Dockerfile execute os seguinte comandos:
 
      2.1. Build a imagem usando:
-     
-     
+      ```
       sudo docker build -f Dockerfile-dispatcher -t dispatcher:v4 .
+      ```
      
-        
      2.2. Rode a imagem usando:
-     
-     
+      ```
       sudo docker run --net=host dispatcher:v4
+      ```
           
           
  3. Para tudo funcionar corretamente é necessário configurar o catalog da seguinte forma:
 
       3.1 Entre no container do dispatcher:v4 usando o seguinte comando:
- 
- 
-          sudo docker exec <CONTAINER_ID> -it bash
+      ```
+      sudo docker exec <CONTAINER_ID> -it bash
+      ```
   
   * Para achar o ``` <CONTAINER_ID> ``` do dispatcher:v4 use o comando: 
-          
-          
-          sudo docker ps
-    
-    
+      ```
+      sudo docker ps
+      ```
+     
       3.2 Dentro do container execute os seguintes comandos:
- 
- 
+      ```
       pip3 install gdal
       pip3 install shapely
       pip install ogr
       pip install --upgrade --force-reinstall ogr
+      ```
            
            
         
@@ -167,15 +159,15 @@ Logo após configure o catalog e o arrebol:
 2. Para executar o Dockerfile execute os seguinte comandos:
 
      2.1. Build a imagem usando:
-     
-     
+      ```
       sudo docker build -f Dockerfile-scheduler -t scheduler:v4 .
+      ```
      
         
      2.2. Rode a imagem usando:
-     
-     
+      ```
       sudo docker run --net=host scheduler:v4
+      ```
      
         
 ## Dockerfile-dashboard
@@ -187,23 +179,23 @@ Logo após configure o catalog e o arrebol:
 3. Para executar o Dockerfile execute os seguinte comandos:
 
      3.1. Build a imagem usando:
-     
-     
+      ```
       sudo docker build -f Dockerfile-dashboard -t dashboard:v4 .
+      ```
      
         
      3.2. Rode a imagem usando:
-     
-     
+      ```
       sudo docker run --net=host dashboard:v4
+      ```
      
         
 4. Para verificar se esta funcionando acesse o endereço IP configurado no dashboard usando:
    
-   ```
-   login: admin_email
-   senha: admin_password
-   ```
+ ```
+ login: admin_email
+ senha: admin_password
+ ```
    
 ## Dockerfile-arrebol
 ### Execução
@@ -214,15 +206,15 @@ Logo após configure o catalog e o arrebol:
 2. Para executar o Dockerfile execute os seguinte comandos:
  
      2.1. Build a imagem usando:
-     
-     
-      sudo docker build -f Dockerfile-arrebol -t arrebol:v4 .
+      ```
+      sudo docker build -f Dockerfile-arrebol -t arrebol:v4 .]
+      ```
      
         
      2.2. Rode a imagem usando:
-     
-     
+      ```
       sudo docker run --net=host arrebol:v4
+      ```
      
         
 3. Após a execução do arrebol, são criadas as tabelas no bd, com isso é preciso adicionar as seguintes constraints:
