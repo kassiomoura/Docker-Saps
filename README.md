@@ -133,14 +133,16 @@ Logo após configure o catalog e o arrebol:
      
      
           sudo docker run --net=host dispatcher:v4
+          
+          
  3. Para tudo funcionar corretamente é necessário configurar o catalog da seguinte forma:
 
-      2.2 Entre no container do catalog:v5 usando o seguinte comando:
+      2.2 Entre no container do dispatcher:v4 usando o seguinte comando:
  
  
           sudo docker exec <CONTAINER_ID> -it bash
   
-  * Para achar o ``` <CONTAINER_ID> ``` do catalog:v5 use o comando: 
+  * Para achar o ``` <CONTAINER_ID> ``` do dispatcher:v4 use o comando: 
           
           
           sudo docker ps
