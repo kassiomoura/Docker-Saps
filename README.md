@@ -137,7 +137,7 @@ Logo após configure o catalog e o arrebol:
           
  3. Para tudo funcionar corretamente é necessário configurar o catalog da seguinte forma:
 
-      2.2 Entre no container do dispatcher:v4 usando o seguinte comando:
+      3.1 Entre no container do dispatcher:v4 usando o seguinte comando:
  
  
           sudo docker exec <CONTAINER_ID> -it bash
@@ -148,7 +148,7 @@ Logo após configure o catalog e o arrebol:
           sudo docker ps
     
     
-      3.1 Dentro do container execute os seguintes comandos:
+      3.2 Dentro do container execute os seguintes comandos:
  
  
           pip3 install gdal
