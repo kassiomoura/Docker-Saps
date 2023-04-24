@@ -113,7 +113,7 @@ Logo após configure o catalog e o arrebol:
      7.2. Rode a imagem usando:
 
      
-          sudo docker run --net=host archiver:v4
+      sudo docker run --net=host archiver:v4
      
         
 ## Dockerfile-dispatcher
@@ -121,21 +121,20 @@ Logo após configure o catalog e o arrebol:
 1. Configure o arquivo **/config/dispatcher.conf** de acordo com os outros componentes
    * Exemplo (nfs): [dispatcher.conf](./confs/dispatcher/clean/dispatcher.conf)
    
-    1.1. Configure o arquivo **/scripts/get_wrs.py** usando o esse get_wrs.py:
-         * Exemplo: [get_wrs.py](./get_wrs.py)
+    1.1. Configure o arquivo **/scripts/get_wrs.py** usando o esse get_wrs.py: [get_wrs.py](./get_wrs.py)
    
 2. Para executar o Dockerfile execute os seguinte comandos:
 
      2.1. Build a imagem usando:
      
      
-          sudo docker build -f Dockerfile-dispatcher -t dispatcher:v4 .
+      sudo docker build -f Dockerfile-dispatcher -t dispatcher:v4 .
      
         
      2.2. Rode a imagem usando:
      
      
-          sudo docker run --net=host dispatcher:v4
+      sudo docker run --net=host dispatcher:v4
           
           
  3. Para tudo funcionar corretamente é necessário configurar o catalog da seguinte forma:
@@ -154,10 +153,10 @@ Logo após configure o catalog e o arrebol:
       3.2 Dentro do container execute os seguintes comandos:
  
  
-          pip3 install gdal
-          pip3 install shapely
-          pip install ogr
-          pip install --upgrade --force-reinstall ogr
+      pip3 install gdal
+      pip3 install shapely
+      pip install ogr
+      pip install --upgrade --force-reinstall ogr
            
            
         
@@ -171,13 +170,13 @@ Logo após configure o catalog e o arrebol:
      2.1. Build a imagem usando:
      
      
-          sudo docker build -f Dockerfile-scheduler -t scheduler:v4 .
+      sudo docker build -f Dockerfile-scheduler -t scheduler:v4 .
      
         
      2.2. Rode a imagem usando:
      
      
-          sudo docker run --net=host scheduler:v4
+      sudo docker run --net=host scheduler:v4
      
         
 ## Dockerfile-dashboard
@@ -191,13 +190,13 @@ Logo após configure o catalog e o arrebol:
      3.1. Build a imagem usando:
      
      
-          sudo docker build -f Dockerfile-dashboard -t dashboard:v4 .
+      sudo docker build -f Dockerfile-dashboard -t dashboard:v4 .
      
         
      3.2. Rode a imagem usando:
      
      
-          sudo docker run --net=host dashboard:v4
+      sudo docker run --net=host dashboard:v4
      
         
 4. Para verificar se esta funcionando acesse o endereço IP configurado no dashboard usando:
@@ -218,13 +217,13 @@ Logo após configure o catalog e o arrebol:
      2.1. Build a imagem usando:
      
      
-          sudo docker build -f Dockerfile-arrebol -t arrebol:v4 .
+      sudo docker build -f Dockerfile-arrebol -t arrebol:v4 .
      
         
      2.2. Rode a imagem usando:
      
      
-          sudo docker run --net=host arrebol:v4
+      sudo docker run --net=host arrebol:v4
      
         
 3. Após a execução do arrebol, são criadas as tabelas no bd, com isso é preciso adicionar as seguintes constraints:
