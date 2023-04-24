@@ -100,3 +100,8 @@ class ConvertToWRS:
 
 lat = float(sys.argv[1])
 lon = float(sys.argv[2])
+
+conv = ConvertToWRS()
+print(conv.get_wrs(lat, lon))
+
+sys.stdout.flush()
