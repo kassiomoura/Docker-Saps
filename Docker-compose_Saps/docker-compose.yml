@@ -12,7 +12,7 @@ services:
             POSTGRES_PASSWORD: catalog_passwd
             POSTGRES_DB: catalog_db_name
     volumes:
-       - ./data/catalog:/postgres-db:/data/postgres
+       - ./data/catalog:/postgres-db
     ports:
       - "5432:5432"
 
@@ -25,7 +25,7 @@ services:
             POSTGRES_PASSWORD: arrebol
             POSTGRES_DB: arrebol
     volumes:
-       - ./data/arrebol:/postgres-db:/data/postgres
+       - ./data/arrebol:/postgres-db
     ports:
       - "5433:5432"
 
