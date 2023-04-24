@@ -133,7 +133,28 @@ Logo após configure o catalog e o arrebol:
      
      
           sudo docker run --net=host dispatcher:v4
-     
+ 3. Para tudo funcionar corretamente é necessário configurar o catalog da seguinte forma:
+
+      2.2 Entre no container do catalog:v5 usando o seguinte comando:
+ 
+ 
+          sudo docker exec <CONTAINER_ID> -it bash
+  
+  * Para achar o ``` <CONTAINER_ID> ``` do catalog:v5 use o comando: 
+          
+          
+          sudo docker ps
+    
+    
+      3.1 Dentro do container execute os seguintes comandos:
+ 
+ 
+          pip3 install gdal
+          pip3 install shapely
+          pip install ogr
+          pip install --upgrade --force-reinstall ogr
+           
+           
         
 ## Dockerfile-scheduler
 ### Execução
