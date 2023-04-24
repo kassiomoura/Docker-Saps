@@ -56,8 +56,9 @@ Logo após configure o catalog e o arrebol:
 ### Execução
 1. Modifique o arquivo sites-available/default-ssl.conf
    
- sudo vim /etc/apache2/sites-available/default-ssl.conf
-
+   ```
+   sudo vim /etc/apache2/sites-available/default-ssl.conf
+   ```
    
 2. Mude o DocumentRoot para o diretorio do nfs (default = /nfs)
    
@@ -68,8 +69,9 @@ Logo após configure o catalog e o arrebol:
    
 3. Modifique o arquivo sites-available/000-default.conf
    
- sudo vim /etc/apache2/sites-available/000-default.conf
-
+   ```
+   sudo vim /etc/apache2/sites-available/000-default.conf
+   ```
    
 4. Mude o DocumentRoot e adicione as linhas em sequencia
    
@@ -87,7 +89,9 @@ Logo após configure o catalog e o arrebol:
    
 5. Modifique o arquivo sites-available/000-default.conf
   
- sudo vim /etc/apache2/apache2.conf
+   ```
+   sudo vim /etc/apache2/apache2.conf
+   ```
    
 6. Mude o FilesMatch 
    
@@ -103,7 +107,7 @@ Logo após configure o catalog e o arrebol:
       7.1. Build a imagem usando:
       
       
-      sudo docker build -f Dockerfile-archiver -t archiver:v4 .
+           sudo docker build -f Dockerfile-archiver -t archiver:v4 .
       
         
      7.2. Rode a imagem usando:
