@@ -1,17 +1,24 @@
-FROM maven:3.6.0-jdk-8-alpine AS builder
+FROM maven:3.6.3-jdk-8-slim AS builder
 
 WORKDIR app
-RUN apk update && apk add git && \
+RUN apt-get update && apt install -y bash && apt-get install -y git && \
     git clone https://github.com/ufcg-lsd/saps-common && \
     cd saps-common && mvn install && \
     git clone https://github.com/ufcg-lsd/saps-catalog && \
-    cd saps-catalog && mvn install
+    cd saps-catalog && mvn install && apt-get -y install curl jq sed && \
+    apt-get install -y python3-pip && apt-get install -y  python3-gdal
 
 COPY pom.xml .
 COPY src  ./src
 RUN mvn install
 
-FROM openjdk:8-alpine
+FROM openjdk:8
+
+RUN apt-get update && apt-get -y install curl jq sed && \
+    apt-get install -y python3-pip && apt-get install -y python3-gdal
+
+COPY ./src src/
+COPY ./scripts scripts/
 COPY --from=builder /app/target/saps-dispatcher-0.0.1-SNAPSHOT.jar dispatcher.jar
 COPY --from=builder /app/target/lib lib/
 COPY ./resources resources/
