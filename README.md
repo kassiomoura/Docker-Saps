@@ -21,22 +21,22 @@
       ```
 
 Logo após configure o catalog e o arrebol:
-      ```
-      su postgres
-      export catalog_user=catalog_user
-      export catalog_passwd=catalog_passwd
-      export catalog_db_name=catalog_db_name
-      psql -c "CREATE USER $catalog_user WITH PASSWORD '$catalog_passwd';"
-      psql -c "CREATE DATABASE $catalog_db_name OWNER $catalog_user;"
-      psql -c "GRANT ALL PRIVILEGES ON DATABASE $catalog_db_name TO $catalog_user;"
-      export arrebol_db_user=arrebol_db_user
-      export arrebol_db_passwd=@rrebol
-      export arrebol_db_name=arrebol 
-      psql -c "CREATE USER $arrebol_db_user WITH PASSWORD '$arrebol_db_passwd';"
-      psql -c "CREATE DATABASE $arrebol_db_name OWNER $arrebol_db_user;"
-      psql -c "ALTER USER $arrebol_db_user PASSWORD '$arrebol_db_passwd';"
-      exit
-      ```
+ ```
+ su postgres
+ export catalog_user=catalog_user
+ export catalog_passwd=catalog_passwd
+ export catalog_db_name=catalog_db_name
+ psql -c "CREATE USER $catalog_user WITH PASSWORD '$catalog_passwd';"
+ psql -c "CREATE DATABASE $catalog_db_name OWNER $catalog_user;"
+ psql -c "GRANT ALL PRIVILEGES ON DATABASE $catalog_db_name TO $catalog_user;"
+ export arrebol_db_user=arrebol_db_user
+ export arrebol_db_passwd=@rrebol
+ export arrebol_db_name=arrebol 
+ psql -c "CREATE USER $arrebol_db_user WITH PASSWORD '$arrebol_db_passwd';"
+ psql -c "CREATE DATABASE $arrebol_db_name OWNER $arrebol_db_user;"
+ psql -c "ALTER USER $arrebol_db_user PASSWORD '$arrebol_db_passwd';"
+ exit
+ ```
       
       
 * Por fim execute o script **/scripts/fetch_landsat_data.sh** (ele demora um pouco
