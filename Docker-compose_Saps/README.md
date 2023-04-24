@@ -62,12 +62,6 @@
      
      
           su postgres
-           
-           
-           
-      2.3.2 Por fim, execute:
-           
-           
           export arrebol_db_user=arrebol_db_user
           export arrebol_db_passwd=arrebol
           export arrebol_db_name=arrebol
