@@ -121,8 +121,8 @@ Logo após configure o catalog e o arrebol:
 1. Configure o arquivo **/config/dispatcher.conf** de acordo com os outros componentes
    * Exemplo (nfs): [dispatcher.conf](./confs/dispatcher/clean/dispatcher.conf)
    
-1.1. Configure o arquivo **/scripts/get_wrs.py** usando o esse get_wrs.py:
-   * Exemplo: [get_wrs.py] (./get_wrs.py)
+    1.1. Configure o arquivo **/scripts/get_wrs.py** usando o esse get_wrs.py:
+         * Exemplo: [get_wrs.py] (./get_wrs.py)
    
 2. Para executar o Dockerfile execute os seguinte comandos:
 
