@@ -22,7 +22,7 @@
 
 Logo após configure o catalog e o arrebol:
       ```
-       su postgres
+      su postgres
       export catalog_user=catalog_user
       export catalog_passwd=catalog_passwd
       export catalog_db_name=catalog_db_name
@@ -36,7 +36,6 @@ Logo após configure o catalog e o arrebol:
       psql -c "CREATE DATABASE $arrebol_db_name OWNER $arrebol_db_user;"
       psql -c "ALTER USER $arrebol_db_user PASSWORD '$arrebol_db_passwd';"
       exit
-      
       ```
       
       
