@@ -10,7 +10,7 @@
       sudo docker build -f Dockerfile-catalog -t catalog:v4 .
       ```
    
-     1.2. Rode a imagem usando:
+1.2. Rode a imagem usando:
       ```
       sudo docker run --net=host -it catalog:v4 bash
       ```
