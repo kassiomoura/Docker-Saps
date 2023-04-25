@@ -6,19 +6,22 @@
 1. Para executar o Dockerfile execute os seguinte comandos:
 
      1.1. Build a imagem usando:
+
        ```
        sudo docker build -f Dockerfile-catalog -t catalog:v4 .
        ```
    
      1.2. Rode a imagem usando:
-      ```
-      sudo docker run --net=host -it catalog:v4 bash
-      ```
+
+       ```
+       sudo docker run --net=host -it catalog:v4 bash
+       ```
 
      1.2.1 Dentro do bash do catalog execute:
-      ```
-      pg_createcluster 12 main --start
-      ```
+
+       ```
+       pg_createcluster 12 main --start
+       ```
 
 Logo após configure o catalog e o arrebol:
  ```
