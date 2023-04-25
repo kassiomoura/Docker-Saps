@@ -11,9 +11,8 @@
 
       1.1. Build a imagem usando:
 
-          ```
           sudo docker build -f Dockerfile-catalog -t catalog:v5 .
-          ```
+          
      
 ## Dockerfile-arrebol
 ### Execução
@@ -21,9 +20,8 @@
 
       1.1. Build a imagem usando:
 
-           ```
-           sudo docker build -f Dockerfile-arrebol -t arrebol:v5 .]
-           ```
+         sudo docker build -f Dockerfile-arrebol -t arrebol:v5 .]
+
 
 * Após a criação das imagem rode o docker-compose:
 
@@ -33,9 +31,8 @@
 
       1.1 Suba usando comando:
 
-          ```
-          sudo docker compose up
-          ```
+         sudo docker compose up
+
    
    * Atenção: Nem todos os containers irão subir mas não se preocupe.
 
@@ -44,26 +41,22 @@
 
       2.2 Entre no container do catalog:v5 usando o seguinte comando:
 
-          ```
-          sudo docker exec <CONTAINER_ID> -it bash
-          ```
+         sudo docker exec <CONTAINER_ID> -it bash
+        
   
   * Para achar o ``` <CONTAINER_ID> ``` do catalog:v5 use o comando: 
 
-          ```
           sudo docker ps
-          ```
+
           
       2.3 Dentro do container execute os seguintes comandos:
 
-          ```
           pg_createcluster 12 main --start
-          ```
-         * Isso irá criar o cluster do postgres
+
+        * Isso irá criar o cluster do postgres
      
       2.3.1 Em seguinta execute:
 
-          ```
           su postgres
           export arrebol_db_user=arrebol_db_user
           export arrebol_db_passwd=arrebol
@@ -78,34 +71,27 @@
           psql -c "CREATE USER $catalog_user WITH PASSWORD '$catalog_passwd';"
           psql -c "CREATE DATABASE $catalog_db_name OWNER $catalog_user;"
           psql -c "GRANT ALL PRIVILEGES ON DATABASE $catalog_db_name TO $catalog_user;"
-          ```
           
-3. Em uma nova aba repita os passos 2 e 2.2, e execute o script **/scripts/fetch_landsat_data.sh** (ele demora um pouco).
-
- ```
+3. Em uma nova aba repita os passos 2 e 2.2, e depois de subir o dispatcher execute o script do diretorio root **/scripts/fetch_landsat_data.sh** (ele demora um pouco).
  cd scripts
  bash fetch_landsat_data.sh
- ```
+
  
 4. Para tudo funcionar corretamente é necessário configurar o dispatcher da seguinte forma:
 
      4.1 Entre no container do dispatcher:v4 usando o seguinte comando:
-
-      ```
-      sudo docker exec <CONTAINER_ID> -it bash
-      ```
+     sudo docker exec <CONTAINER_ID> -it bash
+    
   
   * Para achar o ``` <CONTAINER_ID> ``` do dispatcher:v4 use o comando: 
 
-      ```
-      sudo docker ps
-      ```
+    
+     sudo docker ps
+    
      
      4.2 Dentro do container execute os seguintes comandos:
      
-      ```
       pip3 install gdal
       pip3 install shapely
       pip install ogr
       pip install --upgrade --force-reinstall ogr
-      ```
