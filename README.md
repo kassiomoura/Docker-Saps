@@ -6,9 +6,9 @@
 1. Para executar o Dockerfile execute os seguinte comandos:
 
      1.1. Build a imagem usando:
- ```
- sudo docker build -f Dockerfile-catalog -t catalog:v4 .
- ```
+      ```
+      sudo docker build -f Dockerfile-catalog -t catalog:v4 .
+      ```
    
      1.2. Rode a imagem usando:
       ```
