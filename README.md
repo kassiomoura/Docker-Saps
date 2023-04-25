@@ -11,6 +11,10 @@
        sudo docker build -f Dockerfile-catalog -t catalog:v4 .
        ```
    
+
+
+
+   
      1.2. Rode a imagem usando:
 
        ```
