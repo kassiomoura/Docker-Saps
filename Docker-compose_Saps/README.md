@@ -53,7 +53,7 @@
 
           pg_createcluster 12 main --start
 
-        * Isso irá criar o cluster do postgres
+    * Isso irá criar o cluster do postgres
      
       2.3.1 Em seguinta execute:
 
