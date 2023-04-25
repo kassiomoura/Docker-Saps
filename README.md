@@ -40,7 +40,7 @@ Logo após configure o catalog e o arrebol:
       
       
 * ATENCÃO
-Após subir o dispatcher execute o script **/scripts/fetch_landsat_data.sh** que está localizado no diretório root (ele demora um pouco):
+Apenas depois de subir o dispatcher execute o script **/scripts/fetch_landsat_data.sh** que está localizado no diretório root (ele demora um pouco):
  
  ```
  cd scripts
