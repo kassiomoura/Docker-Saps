@@ -127,7 +127,7 @@ Logo após configure o catalog e o arrebol:
       ```
           
           
- 3. Para tudo funcionar corretamente é necessário configurar o catalog da seguinte forma:
+ 3. Para tudo funcionar corretamente é necessário configurar o dispatcher da seguinte forma:
 
       3.1 Entre no container do dispatcher:v4 usando o seguinte comando:
       ```
