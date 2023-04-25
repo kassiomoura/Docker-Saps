@@ -9,7 +9,7 @@
       ```
       sudo docker build -f Dockerfile-catalog -t catalog:v4 .
       ```
-      
+
      1.2. Rode a imagem usando:
       ```
       sudo docker run --net=host -it catalog:v4 bash
@@ -96,9 +96,9 @@ Logo após configure o catalog e o arrebol:
 7. Para executar o Dockerfile execute os seguinte comandos:
  
       7.1. Build a imagem usando:
-           ```
-           sudo docker build -f Dockerfile-archiver -t archiver:v4 .
-           ```
+       ```
+       sudo docker build -f Dockerfile-archiver -t archiver:v4 .
+       ```
       
         
      7.2. Rode a imagem usando:
