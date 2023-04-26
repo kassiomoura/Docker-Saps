@@ -1,9 +1,8 @@
 FROM postgres:10-alpine
 
 ENV POSTGRES_USER=arrebol_db_user \
-    POSTGRES_PASSWORD=@rrebol \
-    POSTGRES_DB=arrebol_db \
-    arrebol_db_passwd=@rrebol
+    POSTGRES_PASSWORD=arrebol \
+    POSTGRES_DB=arrebol_db
 
 EXPOSE 5432
 
