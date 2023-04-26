@@ -2,8 +2,7 @@
 
 * Importante! É preciso a senha (de @rrebol para arrebol) nos seguintes arquivos de configurações do arrebol:
 
-  ```/arrebol/src/main/resources/application.properties``` ```/arrebol/src/main/resources/application.psql.properties```
-
+  ```/arrebol/src/main/resources/application.properties```
 
 ## Dockerfile-catalog
 ### Execução
