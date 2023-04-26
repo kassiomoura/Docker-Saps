@@ -1,6 +1,6 @@
 # Docker-compose_Saps
 
-* Importante! É preciso mudar as portas (de 5432 para 5433) nos seguintes arquivos de configurações do arrebol e a senha (de @rrebol para arrebol):
+* Importante! É preciso mudar as portas (de 5432 para 5433) e a senha (de @rrebol para arrebol) nos seguintes arquivos de configurações do arrebol:
 
   ```/arrebol/src/main/resources/application.properties``` ```/arrebol/src/main/resources/application.psql.properties```
 
