@@ -20,7 +20,7 @@
 
       1.1. Build a imagem usando:
 
-         sudo docker build -f Dockerfile-arrebol -t arrebol:v5 .]
+         sudo docker build -f Dockerfile-arrebol -t arrebol:v5 .
 
 
 * Após a criação das imagem rode o docker-compose:
