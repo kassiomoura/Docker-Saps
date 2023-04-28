@@ -83,7 +83,7 @@
      4.1 Entre no container do dispatcher:v4 usando o seguinte comando:
      
      ```
-     sudo docker exec <CONTAINER_ID> -it bash
+     sudo docker exec -it <CONTAINER_ID> bash
      ```
     
   
