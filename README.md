@@ -132,7 +132,7 @@ Apenas depois de subir o dispatcher execute o script **/scripts/fetch_landsat_da
 
       3.1 Entre no container do dispatcher:v4 usando o seguinte comando:
       ```
-      sudo docker exec <CONTAINER_ID> -it bash
+      sudo docker exec -it <CONTAINER_ID> bash
       ```
   
   * Para achar o ``` <CONTAINER_ID> ``` do dispatcher:v4 use o comando: 
