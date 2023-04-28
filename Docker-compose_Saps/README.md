@@ -72,8 +72,10 @@
           psql -c "GRANT ALL PRIVILEGES ON DATABASE $catalog_db_name TO $catalog_user;"
           
 3. Em uma nova aba repita os passos 2 e 2.2, e depois de subir o dispatcher execute o script do diretorio root **/scripts/fetch_landsat_data.sh** (ele demora um pouco).
+```
  cd scripts
  bash fetch_landsat_data.sh
+```
 
  
 4. Para tudo funcionar corretamente é necessário configurar o dispatcher da seguinte forma:
