@@ -79,6 +79,8 @@
 4. Para tudo funcionar corretamente é necessário configurar o dispatcher da seguinte forma:
 
      4.1 Entre no container do dispatcher:v4 usando o seguinte comando:
+     
+     
      sudo docker exec <CONTAINER_ID> -it bash
     
   
@@ -89,6 +91,7 @@
     
      
      4.2 Dentro do container execute os seguintes comandos:
+     
      
       pip3 install gdal
       pip3 install shapely
