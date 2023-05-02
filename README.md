@@ -122,7 +122,7 @@ sudo vim /etc/apache2/apache2.conf
    ```
         
 
-   2. Para executar o Dockerfile execute os seguinte comandos:
+2. Para executar o Dockerfile execute os seguinte comandos:
 
      2.1. Build a imagem usando:
       ```
