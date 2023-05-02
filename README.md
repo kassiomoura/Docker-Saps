@@ -114,8 +114,14 @@ Apenas depois de subir o dispatcher execute o script **/scripts/fetch_landsat_da
    * Exemplo (nfs): [dispatcher.conf](./confs/dispatcher/clean/dispatcher.conf)
    
     1.1. Configure o arquivo **/scripts/get_wrs.py** usando o esse get_wrs.py: [get_wrs.py](./get_wrs.py)
-   
-2. Para executar o Dockerfile execute os seguinte comandos:
+    
+    1.2. Configure o arquivo **/src/main/java/saps/dispatcher/utils/RegionUtil.java** (linha 27) para:
+    
+          ```
+           new ProcessBuilder("python3.9", "./scripts/get_wrs.py", latitude, longitude).start();]
+          ```
+
+   2. Para executar o Dockerfile execute os seguinte comandos:
 
      2.1. Build a imagem usando:
       ```
