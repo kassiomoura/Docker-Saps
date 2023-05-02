@@ -53,9 +53,9 @@ Apenas depois de subir o dispatcher execute o script **/scripts/fetch_landsat_da
 ## Dockerfile-archiver
 ### Execução
 1. Modifique o arquivo sites-available/default-ssl.conf
- ```
- sudo vim /etc/apache2/sites-available/default-ssl.conf
- ```
+```
+sudo vim /etc/apache2/sites-available/default-ssl.conf
+```
    
 2. Mude o DocumentRoot para o diretorio do nfs (default = /nfs)
  ```
@@ -64,9 +64,9 @@ Apenas depois de subir o dispatcher execute o script **/scripts/fetch_landsat_da
  ```
    
 3. Modifique o arquivo sites-available/000-default.conf
- ```
- sudo vim /etc/apache2/sites-available/000-default.conf
- ```
+```
+sudo vim /etc/apache2/sites-available/000-default.conf
+```
    
 4. Mude o DocumentRoot e adicione as linhas em sequencia
  ```
@@ -82,9 +82,9 @@ Apenas depois de subir o dispatcher execute o script **/scripts/fetch_landsat_da
  ```
    
 5. Modifique o arquivo sites-available/000-default.conf
- ```
- sudo vim /etc/apache2/apache2.conf
- ```
+```
+sudo vim /etc/apache2/apache2.conf
+```
    
 6. Mude o FilesMatch  
    ```
@@ -97,8 +97,9 @@ Apenas depois de subir o dispatcher execute o script **/scripts/fetch_landsat_da
 7. Para executar o Dockerfile execute os seguinte comandos:
  
       7.1. Build a imagem usando:
-
-       sudo docker build -f Dockerfile-archiver -t archiver:v4 .
+      ```
+      sudo docker build -f Dockerfile-archiver -t archiver:v4 .
+      ```
       
       
         
@@ -116,8 +117,9 @@ Apenas depois de subir o dispatcher execute o script **/scripts/fetch_landsat_da
     1.1. Configure o arquivo **/scripts/get_wrs.py** usando o esse get_wrs.py: [get_wrs.py](./get_wrs.py)
     
     1.2. Configure o arquivo **/src/main/java/saps/dispatcher/utils/RegionUtil.java** (linha 27) para:
-    
-        new ProcessBuilder("python3.9", "./scripts/get_wrs.py", latitude, longitude).start();
+   ``` 
+   new ProcessBuilder("python3.9", "./scripts/get_wrs.py", latitude, longitude).start();
+   ```
         
 
    2. Para executar o Dockerfile execute os seguinte comandos:
