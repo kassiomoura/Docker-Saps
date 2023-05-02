@@ -117,7 +117,7 @@ Apenas depois de subir o dispatcher execute o script **/scripts/fetch_landsat_da
     
     1.2. Configure o arquivo **/src/main/java/saps/dispatcher/utils/RegionUtil.java** (linha 27) para:
     
-        new ProcessBuilder("python3.9", "./scripts/get_wrs.py", latitude, longitude).start();]
+        new ProcessBuilder("python3.9", "./scripts/get_wrs.py", latitude, longitude).start();
         
 
    2. Para executar o Dockerfile execute os seguinte comandos:
