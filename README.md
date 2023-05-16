@@ -112,7 +112,7 @@ sudo vim /etc/apache2/apache2.conf
 ## Dockerfile-dispatcher
 ### Execução
 1. Configure o arquivo **/config/dispatcher.conf** de acordo com os outros componentes
-   * Exemplo (nfs): [dispatcher.conf]([github.com/cilasmarques/saps-docs/blob/main/confs/dispatcher/clean/dispatcher.conf])
+   * Exemplo (nfs): [dispatcher.conf]([www.github.com/cilasmarques/saps-docs/blob/main/confs/dispatcher/clean/dispatcher.conf])
    
     1.1. Configure o arquivo **/scripts/get_wrs.py** usando o esse get_wrs.py: [get_wrs.py](./get_wrs.py)
     
