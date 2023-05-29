@@ -47,6 +47,32 @@ Apenas depois de subir o dispatcher execute o script **/scripts/fetch_landsat_da
  bash fetch_landsat_data.sh
  ```
  
+Para configurar a network do catalog, faça o seguint:
+* Crie uma subnet da network fora pra vm
+```
+sudo docker network create --driver=bridge --subnet=192.168.0.0/16 catalog
+```
+
+* Pegue o IP da interface da vm pra criar a conexão
+```
+inspect na network
+```
+
+* Fazer a configuraçãp com a outra vm com a network
+```
+sudo ip route add <IP_do_catalog> via <IP_da_interface_VM>
+```
+
+* Conexão com o network
+```
+sudo docker network create --driver=bridge --subnet=192.168.0.0/16 --gateway=192.168.0.1 catalog
+```
+
+Refaça os pontos 1.2 em diante usando o novo comando:
+```
+sudo docker run --net=catalog -p 5432:5432 -it catalog:v4 bash
+```
+
 ## IMPORTANTE
 * Para não derrubar o catalog execute o comando ```Ctrl + P``` seguido de ```Ctrl + Q``` no terminal
 
@@ -107,7 +133,21 @@ sudo vim /etc/apache2/apache2.conf
       ```
       sudo docker run --net=host archiver:v4
       ```
-     
+
+* Para configurar o NFS dentro do container siga os seguintes passos:
+```
+apt-get update
+apt-get install -y nfs-kernel-server
+mkdir -p /nfs/
+echo /nfs *(rw,fsid=0,insecure,no_subtree_check,async,no_root_squash) >> /etc/exports 
+exportfs -arvf
+
+su -                                
+service nfs-kernel-server start
+
+su -
+service nfs-kernel-server restart 
+```
         
 ## Dockerfile-dispatcher
 ### Execução
