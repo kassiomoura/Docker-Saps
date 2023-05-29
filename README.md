@@ -60,7 +60,7 @@ inspect catalog
 
 * Faça a configuraçãp com a outra vm com a network
 ```
-sudo ip route add <IP_do_catalog> via <IP_da_interface_VM>
+sudo ip route add <IP_do_catalog> via <IP_do_catalog>
 ```
 
 * Conexão com o network
