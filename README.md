@@ -42,23 +42,23 @@ Logo após configure o catalog e o arrebol:
 * ATENCÃO
 Apenas depois de subir o dispatcher execute o script **/scripts/fetch_landsat_data.sh** que está localizado no diretório root (ele demora um pouco):
  
- ```
- cd scripts
- bash fetch_landsat_data.sh
- ```
+```
+cd scripts
+bash fetch_landsat_data.sh
+```
  
-Para configurar a network do catalog, faça o seguint:
-* Crie uma subnet da network fora pra vm
+Para configurar a network do catalog, faça o seguinte:
+* Crie uma subnet da network fora para a vm
 ```
 sudo docker network create --driver=bridge --subnet=192.168.0.0/16 catalog
 ```
 
 * Pegue o IP da interface da vm pra criar a conexão
 ```
-inspect na network
+inspect catalog
 ```
 
-* Fazer a configuraçãp com a outra vm com a network
+* Faça a configuraçãp com a outra vm com a network
 ```
 sudo ip route add <IP_do_catalog> via <IP_da_interface_VM>
 ```
@@ -135,6 +135,17 @@ sudo vim /etc/apache2/apache2.conf
       ```
 
 * Para configurar o NFS dentro do container siga os seguintes passos:
+Entre no container do archiver:v4 usando o seguinte comando:
+```
+sudo docker exec -it <CONTAINER_ID> bash
+```
+
+Para achar o ``` <CONTAINER_ID> ``` do archiver:v4 use o comando: 
+```
+sudo docker ps
+```
+
+Dentro do container execute os seguintes comandos:
 ```
 apt-get update
 apt-get install -y nfs-kernel-server
