@@ -1,7 +1,8 @@
-FROM maven:3.6.0-jdk-8-alpine AS builder
-RUN apk update && apk add git
+FROM maven:3.6.0-jdk-8 AS builder
 
-WORKDIR app
+RUN apt-get -y install git
+
+WORKDIR /app
 
 RUN git clone https://github.com/ufcg-lsd/saps-common && \
     cd saps-common && mvn install && \
@@ -11,11 +12,11 @@ COPY pom.xml .
 COPY src  ./src
 RUN mvn install
 
-FROM openjdk:8-alpine
+FROM openjdk:8
 
 COPY --from=builder /app/target/saps-archiver-0.0.1-SNAPSHOT.jar archiver.jar
 COPY --from=builder /app/target/lib lib/
 COPY ./config/archiver.conf config/archiver.conf
 COPY ./config/log4j.properties config/log4j.properties
 
-ENTRYPOINT java -Dlog4j.configuration=file:./config/log4j.properties -Djava.library.path=/usr/local/lib -cp archiver.jar:lib/*  saps.archiver.core.ArchiverMain ./config/archiver.conf ./resources/execution_script_tags.json                                                                                                                        
+ENTRYPOINT java -Dlog4j.configuration=file:./config/log4j.properties -Djava.library.path=/usr/local/lib -cp archiver.jar:lib/*  saps.archiver.core.ArchiverMain ./config/archiver.conf ./resources/execution_script_tags.json
